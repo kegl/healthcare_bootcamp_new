@@ -5,7 +5,7 @@ from sklearn.base import BaseEstimator
 
 class Classifier(BaseEstimator):
 	def __init__(self):
-		self.clf = Pipeline([('imputer', Imputer()), ('rf', RandomForestClassifier(n_estimators=250))])
+		self.clf = Pipeline([('imputer', Imputer()), ('rf', RandomForestClassifier(n_estimators=200))])
 	
 	def fit(self, X, y):
 		self.clf.fit(X, y)
