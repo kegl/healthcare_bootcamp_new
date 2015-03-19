@@ -3,6 +3,7 @@ from sklearn.preprocessing import Imputer
 from sklearn.svm import NuSVC
 from sklearn.pipeline import Pipeline
 from sklearn import preprocessing
+from sklearn.base import BaseEstimator
 
 class Classifier(BaseEstimator):
     def __init__(self):
