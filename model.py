@@ -17,7 +17,7 @@ class Classifier(BaseEstimator):
         self.clf.fit(X, y)
         X_good_features = self.clf.transform(X)
         X_scaled = preprocessing.scale(X_good_features)
-        clf2.fit(X_scaled, y)
+        self.clf2.fit(X_scaled, y)
 
     def predict(self, X):
         return self.clf2.predict(X)
