@@ -5,7 +5,6 @@ from sklearn.pipeline import Pipeline
 from sklearn import preprocessing
 from sklearn.base import BaseEstimator
 
-#
 class Classifier(BaseEstimator):
     def __init__(self):
         self.clf = Pipeline([('imputer', Imputer()), 
@@ -16,7 +15,7 @@ class Classifier(BaseEstimator):
 
     def fit(self, X, y):
         self.clf.fit(X, y)
-        X_good_features = clf.transform(X)
+        X_good_features = self.clf.transform(X)
         X_scaled = preprocessing.scale(X_good_features)
         clf2.fit(X_scaled, y)
 
