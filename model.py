@@ -1,20 +1,26 @@
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import Imputer
+from sklearn.svm import NuSVC
 from sklearn.pipeline import Pipeline
-from sklearn.base import BaseEstimator
+from sklearn import preprocessing
 
 class Classifier(BaseEstimator):
     def __init__(self):
-        self.clf = Pipeline([('imputer', Imputer(strategy='most_frequent')),
-        ('rf', AdaBoostClassifier(base_estimator=RandomForestClassifier(max_depth=6, n_estimators=100),
-                         n_estimators=20))])
+        self.clf = Pipeline([('imputer', Imputer()), 
+            ('rf', RandomForestClassifier(n_estimators=300))])
+    
+        self.clf2 = Pipeline([('imputer', Imputer(strategy='most_frequent')),
+        ('svc', NuSVC(probability=True))])
 
     def fit(self, X, y):
         self.clf.fit(X, y)
+        X_good_features = clf.transform(X)
+        X_scaled = preprocessing.scale(X_good_features)
+        clf2.fit(X_scaled, y)
 
     def predict(self, X):
-        return self.clf.predict(X)
+        return self.clf2.predict(X)
 
     def predict_proba(self, X):
-        return self.clf.predict_proba(X)
+        return self.clf2.predict_proba(X)
 
