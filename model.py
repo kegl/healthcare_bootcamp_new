@@ -20,8 +20,12 @@ class Classifier(BaseEstimator):
         self.clf2.fit(X_scaled, y)
 
     def predict(self, X):
-        return self.clf2.predict(X)
+        X_good_features = self.clf.transform(X)
+        X_scaled = preprocessing.scale(X_good_features)
+        return self.clf2.predict(X_scaled)
 
     def predict_proba(self, X):
+        X_good_features = self.clf.transform(X)
+        X_scaled = preprocessing.scale(X_good_features)
         return self.clf2.predict_proba(X)
 
