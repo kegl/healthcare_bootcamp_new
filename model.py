@@ -27,5 +27,5 @@ class Classifier(BaseEstimator):
     def predict_proba(self, X):
         X_good_features = self.clf.transform(X)
         X_scaled = preprocessing.scale(X_good_features)
-        return self.clf2.predict_proba(X)
+        return self.clf2.predict_proba(X_scaled)
 
