@@ -5,7 +5,7 @@ from sklearn.pipeline import Pipeline
 from sklearn import preprocessing
 from sklearn.base import BaseEstimator
 
-class Classifier(BaseEstimator):
+lass Classifier(BaseEstimator):
     def __init__(self):
         self.clf = Pipeline([('imputer', Imputer()), 
             ('rf', RandomForestClassifier(n_estimators=300))])
