@@ -5,10 +5,10 @@ from sklearn.pipeline import Pipeline
 from sklearn import preprocessing
 from sklearn.base import BaseEstimator
 
-lass Classifier(BaseEstimator):
+class Classifier(BaseEstimator):
     def __init__(self):
         self.clf = Pipeline([('imputer', Imputer()), 
-            ('rf', RandomForestClassifier(n_estimators=300))])
+            ('rf', RandomForestClassifier(n_estimators=100))])
     
         self.clf2 = Pipeline([('imputer', Imputer(strategy='most_frequent')),
         ('svc', NuSVC(probability=True))])
