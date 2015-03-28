@@ -10,7 +10,7 @@ class Classifier(BaseEstimator):
     def __init__(self):
 
         self.clf = Pipeline([
-            ('imputer', Imputer(strategy='most_frequent'))),
+            ('imputer', Imputer(strategy='most_frequent')),
             ('scaler', StandardScaler()),
             ('AB', AdaBoostClassifier(base_estimator=SimpleNeuralNet(nb_hidden_list=[50],
                                           max_nb_epochs=10,
