@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier
 from lasagne.easy import SimpleNeuralNet
 import numpy as np
 from sklearn.preprocessing import StandardScaler, Imputer
@@ -13,7 +13,7 @@ class Classifier(BaseEstimator):
         self.clf = Pipeline([
             ('imputer', Imputer(strategy='most_frequent')),
             ('scaler', StandardScaler()),
-            ('AB', AdaBoostClassifier(base_estimator=SimpleNeuralNet(nb_hidden_list=[50],
+            ('AB', RandomForestClassifier(base_estimator=SimpleNeuralNet(nb_hidden_list=[50],
                                           max_nb_epochs=10,
                                           batch_size=100,
                                           learning_rate=0.9)))
