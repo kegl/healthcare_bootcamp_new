@@ -1,4 +1,5 @@
 from sklearn.base import BaseEstimator
+from sklearn.ensemble import AdaBoostClassifier
 from lasagne.easy import SimpleNeuralNet
 import numpy as np
 from sklearn.preprocessing import StandardScaler, Imputer
