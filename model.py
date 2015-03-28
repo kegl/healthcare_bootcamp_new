@@ -15,7 +15,7 @@ class Classifier(BaseEstimator):
             ('AB', AdaBoostClassifier(base_estimator=SimpleNeuralNet(nb_hidden_list=[50],
                                           max_nb_epochs=10,
                                           batch_size=100,
-                                          learning_rate=0.9))
+                                          learning_rate=0.9)))
         ])
 
     def __getattr__(self, attrname):
